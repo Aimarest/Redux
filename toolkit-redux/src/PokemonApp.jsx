@@ -19,9 +19,11 @@ export const PokemonApp = () => {
             <hr />
             <span>Loading: {isLoading ? 'True' : 'False'}</span>
             <ul>
-                {pokemons.map((pokemon) => {
-                    return <li key={pokemon.name}>{pokemon.name}</li>
-                })}
+                {
+                    pokemons.map(({ name }) => (
+                        <li key={name}>{name}</li>
+                    ))
+                }
             </ul>
             <button disabled={isLoading} onClick={() => dispatch(getPokemons(page))}>
                 Next
